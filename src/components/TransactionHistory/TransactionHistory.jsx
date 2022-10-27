@@ -1,27 +1,31 @@
+import { ListItem, List, Item } from './TransactionHistory.styled';
+
 export const TransactionHistory = ({ items }) => {
-  <thead>
-    <tr>
-      <th>Type</th>
-      <th>Amount</th>
-      <th>Currency</th>
-    </tr>
-  </thead>;
+  <table>
+    <ListItem>
+      <tr>
+        <Item>Type</Item>
+        <Item>Amount</Item>
+        <Item>Currency</Item>
+      </tr>
+    </ListItem>
+  </table>;
   return (
-    <table className="transaction-history">
-      <thead>
+    <table>
+      <ListItem>
         <tr>
           <th>Type</th>
           <th>Amount</th>
           <th>Currency</th>
         </tr>
-      </thead>
+      </ListItem>
       {items.map(({ id, amount, type, currency }) => {
         return (
           <tbody key={id}>
             <tr>
-              <th>{type}</th>
-              <th>{amount}</th>
-              <th>{currency}</th>
+              <List>{type}</List>
+              <List>{amount}</List>
+              <List>{currency}</List>
             </tr>
           </tbody>
         );
@@ -29,3 +33,13 @@ export const TransactionHistory = ({ items }) => {
     </table>
   );
 };
+
+//  {items.map(({ id, amount, type, currency }) => {
+//         return (
+//           <tbody key={id}>
+//             <tr>
+//               <th>{type}</th>
+//               <th>{amount}</th>
+//               <th>{currency}</th>
+//             </tr>
+//           </tbody>
